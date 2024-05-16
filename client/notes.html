@@ -9,9 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Handlee&family=Indie+Flower&display=swap"
       rel="stylesheet"
     />
-    <title>Notaty</title>
+    <title>Notictia</title>
   </head>
-  <body onload="updateNotesTable()">
+  <body onload="fetchNotes()">
     <!-- Top menu -->
     <div class="navigation-bar">
       <div class="navigation-container">
@@ -41,9 +41,9 @@
     <table id="notes-table">
       <colgroup>
         <col span="1" style="width: 20%;" />
-        <col span="1" style="width: 55%;" />
+        <col span="1" style="width: 50%;" />
         <col span="1" style="width: 20%;" />
-        <col span="1" style="width: 5%;" />
+        <col span="1" style="width: 10%;" />
       </colgroup>
       <tr>
         <th>Title</th>
@@ -131,8 +131,8 @@
         </div>
       </div>
     </div>
-    <script src="note-client.js"></script>
-    <script src="note-handler.js"></script>
-    <script src="modal-handler.js"></script>
+    <script src="js/note-client.js"></script>
+    <script src="js/note-handler.js"></script>
+    <script src="js/modal-handler.js"></script>
   </body>
 </html>

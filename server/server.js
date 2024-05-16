@@ -11,31 +11,31 @@ serverApp.use(cors());
 serverApp.use(bodyParser.json());
 serverApp.use(bodyParser.urlencoded({ extended: false }));
 
-serverApp.post("/notictia/notes", (req, res) => {
+serverApp.post("/notictia/note", (req, res) => {
     db.addNote(req.body)
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });
 
 serverApp.get("/notictia/notes", (req, res) => {
-    db.getAllNotes()
+    db.getAllNotes(req.query.title)
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });
 
-serverApp.get("/notictia/notes/:title", (req, res) => {
+serverApp.get("/notictia/note/:title", (req, res) => {
     db.getNote(req.params.title)
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });
 
-serverApp.put("/notictia/notes/:title", (req, res) => {
+serverApp.put("/notictia/note/:title", (req, res) => {
     db.updateNote(req.params.title, req.body)
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });
 
-serverApp.delete("/notictia/notes/:title", (req, res) => {
+serverApp.delete("/notictia/note/:title", (req, res) => {
     db.deleteNote(req.params.title)
         .then((data) => res.send(data))
         .catch((err) => res.send(err));

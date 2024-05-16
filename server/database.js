@@ -10,50 +10,52 @@ class database {
         mongoose
             .connect(this.url)
             .then(() => {
-                console.log("Database connected successfully");
+                console.log("Database is connected successfully");
             })
             .catch((err) => {
-                console.log("Database connection failed", err);
+                console.log("Database connection is failed", err);
             });
     }
 
     addNote(note) {
         return new Promise((resolve, reject) => {
-            const newNote = new Note(note);
-            newNote
-                .save()
+            Note.create(note)
                 .then((doc) => resolve(doc))
                 .catch((err) => reject(err));
         });
     }
-    
-    getAllNotes() {
+
+    getAllNotes(title) {
         return new Promise((resolve, reject) => {
-            Note.find()
-                .then((doc) => resolve(doc))
-                .catch((err) => reject(err));
+            title == undefined
+                ? Note.find()
+                      .then((doc) => resolve(doc))
+                      .catch((err) => reject(err))
+                : Note.find({ title: title })
+                      .then((doc) => resolve(doc))
+                      .catch((err) => reject(err));
         });
     }
-    
+
     getNote(title) {
         return new Promise((resolve, reject) => {
-            Note.findOne({title: title})
+            Note.findOne({ title: title })
                 .then((doc) => resolve(doc))
                 .catch((err) => reject(err));
         });
     }
-    
+
     updateNote(title, note) {
         return new Promise((resolve, reject) => {
-            Note.findOneAndUpdate({title: title}, note)
+            Note.findOneAndUpdate({ title: title }, note)
                 .then((doc) => resolve(doc))
                 .catch((err) => reject(err));
         });
     }
-    
+
     deleteNote(title) {
         return new Promise((resolve, reject) => {
-            Note.deleteOne({title: title})
+            Note.deleteOne({ title: title })
                 .then((doc) => resolve(doc))
                 .catch((err) => reject(err));
         });
