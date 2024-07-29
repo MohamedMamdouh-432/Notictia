@@ -1,0 +1,36 @@
+{
+  "name": "notictia",
+  "version": "1.0.0",
+  "description": "website to manage notes using nodejs",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedMamdouh-432/notictia.git"
+  },
+  "keywords": [
+    "nodejs",
+    "notes",
+    "mongodb",
+    "rest-api"
+  ],
+  "author": "Mohamed Mamdouh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedMamdouh-432/notictia/issues"
+  },
+  "homepage": "https://github.com/MohamedMamdouh-432/notictia#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
